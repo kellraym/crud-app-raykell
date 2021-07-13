@@ -1,19 +1,23 @@
-import DisplayList from './Components/DisplayList';
 import './App.css';
+import DisplayList from './Components/DisplayList';
+import Navbar from './Components/Navbar'
+import Home from './Components/Home'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <nav>
-        navbar goes here
-      </nav>
-      <header>
-        <h1>To Do List 2.0</h1>
-      </header>
-      <section>
-        <DisplayList/>
-      </section>
-    </div>
+    <Router>
+      <Switch>
+        <div>
+          <Navbar />
+
+          <section>
+            <Route exact path="/" component={Home} />
+          </section>
+        </div>
+      </Switch>
+    </Router>
+
   );
 }
 
