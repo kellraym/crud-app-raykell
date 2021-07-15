@@ -21,25 +21,27 @@ export default function DisplayCompleted() {
       <h2>⭐ Hall of Fame (your completed items)⭐</h2>
       <ol>
         {completedList.map(item => {
-          <div>
-            <li className="list-item" onClick={() => {
-              document.querySelector(`.item${item.id}`).classList.toggle('hidden');
-            }}>
-              {`Name: ${item.name} Due By: ${item.due_date} `}
-            </li>
-            <span className={`item${item.id} hidden`}>
-              {item.description}
-              <br />
-            </span>
-            <span>
-              <button>Uncomplete</button>
-            </span>
-            <span>
-              <Link to={`edit/${item.id}`}>
-                <button>DELETE FOREVER!</button>
-              </Link>
-            </span>
-          </div>
+          return (
+            <div>
+              <li className="list-item" onClick={() => {
+                document.querySelector(`.item${item.id}`).classList.toggle('hidden');
+              }}>
+                {`Name: ${item.name} Due By: ${item.due_date} `}
+              </li>
+              <span className={`item${item.id} hidden`}>
+                {item.description}
+                <br />
+              </span>
+              <span>
+                <button>Uncomplete</button>
+              </span>
+              <span>
+                <Link to={`edit/${item.id}`}>
+                  <button>DELETE FOREVER!</button>
+                </Link>
+              </span>
+            </div>
+          )
         })}
       </ol>
     </div>
