@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS crud_app_raykell;
+CREATE USER docker;
+CREATE DATABASE crud_app_raykell;
+GRANT ALL PRIVILEGES ON DATABASE docker TO docker;
+GRANT ALL PRIVILEGES ON DATABASE docker TO postgres;

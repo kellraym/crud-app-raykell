@@ -1,8 +1,8 @@
 version: '3.1'
 services:
   frontend:
-    build: ../frontend
-    image: kellraym/frontend
+    build: ./frontend
+    image: kellraym/crud_app_raykell_frontend
     container_name: frontend
     volumes:
       - /home/kellraym/test/crud-app-raykell/frontend
@@ -14,8 +14,8 @@ services:
       - server
 
   server:
-    build: ./
-    image: kellraym/backend
+    build: ./backend
+    image: kellraym/crud_app_raykell_backend
     container_name: backend
     volumes:
       - /home/kellraym/test/crud-app-raykell/backend
