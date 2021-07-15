@@ -9,8 +9,23 @@ export default function AddItem() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    fetch('http://localhost:3001/additem', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        dueDate: dueDate,
+        description: description
+      })
+    })
     alert(`You have pressed the submit button`)
     console.log(`default was prevented`, e.target)
+    setName('')
+    setDueDate('')
+    setDescription('')
   }
 
   return (
@@ -19,14 +34,14 @@ export default function AddItem() {
       <ul>
         <li>
           <label for="name">Item name: </label>
-          <input id="name" placeholder="name"></input></li>
+          <input id="name" placeholder="name" onChange={(e) => setName(e.target.value)} value={name}></input></li>
         <li>
           <label for="due-date">Due date: </label>
-          <input type="date" id="due-date" placeholder="due date"></input>
+          <input type="date" onChange={(e) => setDueDate(e.target.value)} value={dueDate} id="due-date" placeholder="due date"></input>
         </li>
         <li>
           <label id="desc-label" for="description">Description</label>
-          <textarea id="description" rows="5" cols="40" placeholder="description(optional)"></textarea>
+          <textarea id="description" rows="5" cols="40" onChange={(e) => setDescription(e.target.value)} value={description} placeholder="description(optional)"></textarea>
         </li>
         <li>
           <button onClick={(e) => handleSubmit(e)}>SUBMIT!</button>
