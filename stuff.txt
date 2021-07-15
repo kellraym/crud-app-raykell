@@ -1,0 +1,118 @@
+docker compose, knex file backend package JSON (to start knex through docker compose run [docker compose up --build])
+
+version: "3.1"
+services:
+  frontend:
+    build: ./frontend
+    image: gncarlos/frontend
+    container_name: frontend
+    volumes:
+      - "./frontend:/frontend"
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    depends_on:
+      - server
+
+  server:
+    build: ./backend
+    image: gncarlos/backend
+    container_name: server
+    volumes:
+      - "./backend:/backend"
+    ports:
+      - "3001:3001"
+    networks:
+      - app-network
+    environment:
+      DB_CONNECTION_STRING: postgres://postgres:docker@db:5432/names
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: names
+
+    volumes:
+      - $HOME/docker/volumes/postgres:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+    // Update with your config settings.
+    const connectionString =process.env.DB_CONNECTION_STRING
+    module.exports = {
+    
+      development: {
+        client: 'pg',
+        connection: connectionString
+      },
+    
+      staging: {
+        client: 'postgresql',
+        connection: {
+          database: 'my_db',
+          user:     'username',
+          password: 'password'
+        },
+        pool: {
+          min: 2,
+          max: 10
+        },
+        migrations: {
+          tableName: 'knex_migrations'
+        }
+      },
+    
+      production: {
+        client: 'postgresql',
+        connection: {
+          database: 'my_db',
+          user:     'username',
+          password: 'password'
+        },
+        pool: {
+          min: 2,
+          max: 10
+        },
+        migrations: {
+          tableName: 'knex_migrations'
+        }
+      }
+    
+    };
+    
+    {
+  "name": "backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run start-knex && nodemon ./bin/www",
+    "start-knex":"npx knex migrate:latest && npx knex seed:run"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "^4.16.4",
+    "knex": "^0.95.7",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.12",
+    "pg": "^8.6.0"
+  },
+  "main": "app.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
