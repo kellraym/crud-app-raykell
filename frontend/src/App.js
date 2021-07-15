@@ -6,12 +6,13 @@ import AddItem from './Components/AddItem'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
+  document.title = 'To Do List 2.0'
+
   return (
     <Router>
       <Switch>
         <div>
           <Navbar />
-
           <section>
             <Route exact path="/" component={Home} />
             <Route path="/additem" component={AddItem} />

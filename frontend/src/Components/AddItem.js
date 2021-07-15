@@ -1,3 +1,4 @@
+import '../Styles/AddItem.css';
 import React, { useState, useEffect } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 
@@ -8,11 +9,13 @@ export default function AddItem() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    alert(`You have pressed the submit button`)
     console.log(`default was prevented`, e.target)
   }
 
   return (
     <form>
+      <h2>WOW add an item!</h2>
       <ul>
         <li>
           <label for="name">Item name: </label>
