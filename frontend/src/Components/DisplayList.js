@@ -1,17 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 
-// const starterList = [
-//   {
-//     "name": "do the laundry",
-//     "CompleteBy": "Friday"
-//   },
-//   {
-//     "name": "do the laundry again",
-//     "CompleteBy": "Thursday"
-//   }
-// ]
-
 export default function DisplayList() {
   const [list, setList] = useState([])
 
@@ -19,6 +8,16 @@ export default function DisplayList() {
     fetch(`http://localhost:3001/`)
       .then(res => res.json())
       .then(json => setList(json))
+  }
+
+  function markComplete(id) {
+    fetch(`http://localhost:3001/complete/${id}`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
   }
 
   useEffect(() => {
@@ -40,7 +39,7 @@ export default function DisplayList() {
               <br />
             </span>
             <span>
-              <button>Complete</button>
+              <button onClick={() => markComplete(item.id)}>Complete</button>
             </span>
             <span>
               <Link to={`edit/${item.id}`}>

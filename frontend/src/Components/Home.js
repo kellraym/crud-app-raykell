@@ -1,5 +1,6 @@
 import React from 'react';
 import DisplayList from './DisplayList';
+import addItem from './AddItem'
 
 export default function Home() {
   return (
