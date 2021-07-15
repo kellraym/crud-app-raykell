@@ -8,7 +8,7 @@ export default function Navbar() {
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/additem">Add an item</Link></li>
-        <li><Link to="/completed">Completed</Link></li>
+        <li><Link to="/complete">Completed</Link></li>
       </ul>
     </nav>
   )

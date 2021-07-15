@@ -1,6 +1,5 @@
 import '../Styles/AddItem.css';
-import React, { useState, useEffect } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import React, { useState } from 'react';
 
 export default function AddItem() {
   const [name, setName] = useState('')
