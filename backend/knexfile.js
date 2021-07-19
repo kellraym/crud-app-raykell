@@ -27,7 +27,7 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      connectionString,
+      databaseUrl,
       ssl: {
         rejectUnauthorized: false,
       },
@@ -41,6 +41,9 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations'
+    },
+    seeds: {
+      directory: './seeds'
     }
   }
 
