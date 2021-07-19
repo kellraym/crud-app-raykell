@@ -8,7 +8,7 @@
     "start": "npm run dev",
     "backend": "cd backend && npm i express knex pg && npm start",
     "frontend": "cd frontend && npm install && npm start",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
