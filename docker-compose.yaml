@@ -27,6 +27,8 @@ services:
       - app-network
     environment:
       DB_CONNECTION_STRING: postgres://postgres:docker@db:5432/crud_app_raykell
+#       DB_CONNECTION_STRING: 
+# postgres://qlewanckngfcic:e86585738e92fb15902c56f3b5d7ac7f2c5b36161f956b7a81e4aa3a75e5e0a2@ec2-52-1-20-236.compute-1.amazonaws.com:5432/d1mgkhtvol5b8m
     depends_on:
       - db
 
@@ -47,3 +49,13 @@ services:
 networks:
   app-network:
     driver: bridge
+
+
+    #changed db_connection_string, original commented
+    # user originally - postgres
+    # password originally -docker
+    # db originally crud_app_raykell
+
+    # POSTGRES_USER: qlewanckngfcic
+    #   POSTGRES_PASSWORD: e86585738e92fb15902c56f3b5d7ac7f2c5b36161f956b7a81e4aa3a75e5e0a2
+    #   POSTGRES_DB: d1mgkhtvol5b8m

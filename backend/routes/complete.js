@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const knex = require('knex')(require('../knexfile.js')['production']);
+const knex = require('knex')(require('../knexfile.js')['development']);
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
