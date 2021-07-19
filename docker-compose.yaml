@@ -5,7 +5,8 @@ services:
     image: kellraym/crud_app_raykell_frontend
     container_name: frontend
     volumes:
-      - /home/kellraym/test/crud-app-raykell/frontend
+      - ./frontend:/frontend
+      # - /home/kellraym/test/crud-app-raykell/frontend
     ports:
       - 3000:3000
     networks:
@@ -18,7 +19,8 @@ services:
     image: kellraym/crud_app_raykell_backend
     container_name: backend
     volumes:
-      - /home/kellraym/test/crud-app-raykell/backend
+      - ./server:/server
+      # - /home/kellraym/test/crud-app-raykell/backend
     ports:
       - "3001:3001"
     networks:

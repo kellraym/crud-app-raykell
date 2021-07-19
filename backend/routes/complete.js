@@ -3,15 +3,16 @@ var router = express.Router();
 const knex = require('knex')(require('../knexfile.js')['development']);
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   knex.select('id', 'name', 'due_date', 'description')
-  .from('todos')
-  .where('complete', '=', true)
-  .then(data => {
-    console.log(data)
-    res.status(200).json(data)})
-  .catch(err => res.status(404).send({ message: err })
-  )
+    .from('todos')
+    .where('complete', '=', true)
+    .then(data => {
+      console.log(data)
+      res.status(200).json(data)
+    })
+    .catch(err => res.status(404).send({ message: err })
+    )
 })
 
 router.post('/:id', function (req, res, next) {

@@ -1,4 +1,4 @@
-const connectionString = process.env.DB_CONNECTION_STRING
+const connectionString = process.env.DB_CONNECTION_STRING;
 
 module.exports = {
 
@@ -24,11 +24,15 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password'
+      connectionString,
+      ssl: {
+        rejectUnauthorized: false,
+      }
+      // database: 'my_db',
+      // user: 'username',
+      // password: 'password'
     },
     pool: {
       min: 2,
