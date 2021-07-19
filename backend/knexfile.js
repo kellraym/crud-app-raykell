@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: databaseUrl || connectionString || 'postgres://postgres:docker@localhost/crud_app_raykell'
+    connection: connectionString || 'postgres://postgres:docker@localhost/crud_app_raykell'
   },
 
   staging: {
