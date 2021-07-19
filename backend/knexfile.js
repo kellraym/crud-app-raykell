@@ -1,5 +1,5 @@
 const connectionString = process.env.DB_CONNECTION_STRING;
-const databaseUrl = process.env.DATABASE_URL
+
 module.exports = {
 
   development: {
@@ -26,7 +26,7 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      databaseUrl,
+      connectionString: process.env.DATABASE_URL,
       ssl: {
         rejectUnauthorized: false,
       },
