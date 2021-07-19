@@ -5,6 +5,9 @@ import Home from './Components/Home'
 import AddItem from './Components/AddItem'
 import DisplayCompleted from './Components/DisplayCompleted';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+const port = process.env.port || 3000;
+
+App.listen(port)
 
 function App() {
   document.title = 'To Do List 2.0'
