@@ -1,5 +1,5 @@
 const connectionString = process.env.DB_CONNECTION_STRING;
-
+const otherConnectionString = 'postgres://xkscfwhexwkvfz:b2ea5d82a0716785e24c07af9f7ac175ffe3594d72d3386a38277280a491f684@ec2-52-72-125-94.compute-1.amazonaws.com:5432/deai91bpi9bc0s'
 module.exports = {
 
   development: {
@@ -26,11 +26,11 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      connectionString,
+      otherConnectionString,
       ssl: {
         rejectUnauthorized: false,
       },
-      database: 'crud_app_raykell',
+      database: 'deai91bpi9bc0s',
       user: 'xkscfwhexwkvfz',
       password: 'b2ea5d82a0716785e24c07af9f7ac175ffe3594d72d3386a38277280a491f684'
     },
