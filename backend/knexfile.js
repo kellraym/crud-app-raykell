@@ -1,10 +1,11 @@
 const connectionString = process.env.DB_CONNECTION_STRING;
+const databaseUrl = process.env.DATABASE_URL;
 
 module.exports = {
 
   development: {
     client: 'pg',
-    connection: connectionString || 'postgres://postgres:docker@localhost/crud_app_raykell'
+    connection: databaseUrl || connectionString || 'postgres://postgres:docker@localhost/crud_app_raykell'
   },
 
   staging: {
@@ -29,10 +30,10 @@ module.exports = {
       connectionString,
       ssl: {
         rejectUnauthorized: false,
-      }
-      // database: 'my_db',
-      // user: 'username',
-      // password: 'password'
+      },
+      database: 'crud_app_raykell',
+      user: 'username',
+      password: 'password'
     },
     pool: {
       min: 2,
