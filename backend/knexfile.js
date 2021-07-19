@@ -30,9 +30,9 @@ module.exports = {
       ssl: {
         rejectUnauthorized: false,
       },
-      // database: 'deai91bpi9bc0s',
-      // user: 'xkscfwhexwkvfz',
-      // password: 'b2ea5d82a0716785e24c07af9f7ac175ffe3594d72d3386a38277280a491f684'
+      database: 'deai91bpi9bc0s',
+      user: 'xkscfwhexwkvfz',
+      password: 'b2ea5d82a0716785e24c07af9f7ac175ffe3594d72d3386a38277280a491f684'
     },
     pool: {
       min: 2,
