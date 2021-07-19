@@ -5,9 +5,9 @@ import Home from './Components/Home'
 import AddItem from './Components/AddItem'
 import DisplayCompleted from './Components/DisplayCompleted';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-const port = process.env.port || 3000;
+// const port = process.env.port || 3000;
 
-App.listen(port)
+// App.listen(port)
 
 function App() {
   document.title = 'To Do List 2.0'
@@ -20,7 +20,7 @@ function App() {
           <section>
             <Route exact path="/" component={Home} />
             <Route path="/additem" component={AddItem} />
-            <Route path ="/complete" component={DisplayCompleted} />
+            <Route path="/complete" component={DisplayCompleted} />
           </section>
         </div>
       </Switch>
